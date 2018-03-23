@@ -1,0 +1,104 @@
+Documentation for Warmup Assignment 1
+=====================================
+
++-------+
+| BUILD |
++-------+
+
+make or make warmup2
+
++---------+
+| GRADING |
++---------+
+
+Basic running of the code : +100 points 
+   for the following 2 cases,code runs  without stopping in both cases (with and without pressing ctrl C)
+    ./warmup2 -n 4 -r 7 -B 7 -P 5 -lambda 3.333 -mu 8.5     
+    ./warmup2 -mu 0.85 -r 0.5 -P 5 -lambda 33.33 -B 7 -n 4 
+
+   for the following tests, server threads are not idel for the entire run when <Cntrl+C> is not pressed 
+    ./warmup2 -B 3 -t ~csci570b/public/cs402/warmup2/f0.txt 
+    ./warmup2 -t ~csci570b/public/cs402/warmup2/f1.txt -B 2 
+    ./warmup2 -B 1 -t ~csci570b/public/cs402/warmup2/f2.txt 
+    ./warmup2 -t ~csci570b/public/cs402/warmup2/f3.txt 
+    ./warmup2 -r 5 -B 2 -t ~csci570b/public/cs402/warmup2/f4.txt 
+    ./warmup2 -B 2 -t ~csci570b/public/cs402/warmup2/f5.txt -r 15 
+    ./warmup2 -t ~csci570b/public/cs402/warmup2/f6.txt -r 25 -B 2 
+    ./warmup2 -t ~csci570b/public/cs402/warmup2/f7.txt -B 1 -r 5 
+
+
+	Missing required section(s) in README file : All sections completed.
+	Did not submit binary file
+	Cannot compile : Code compiles properly.
+	Compiler warnings : There are no warnings.
+	"make clean" : make clean works fine.
+	Segmentation faults : There were no segmentation faults.
+	Program terminates: Program terminates both when <Ctrl +C >is pressed and when it is not pressed.
+	Separate compilation : Separate compilation satifies. I have provided my402list.c and warmup2.c. They compile seperately.
+	Malformed input : Malformed input messages are printed properly with line numbers and field description.
+	Too slow : Program run fast.
+	No Delay in tace printing 
+	No Busy wait. Have used guard commands . No semaphores. 
+
+
+
+
+Handling of commandline arguments: Handles all command line arguments 
+    
+
+Trace output : 
+    Each regular packet must have 7 lines of trace and contain
+          
+    Each dropped packet has exactly 1 line of trace and contain
+          
+    Each removed packet (due to <Cntrl+C>) contains correct removal
+           
+    Each token arrival (dropped or not dropped) has  exactly 1 line
+           of trace and contain correct information 
+    Timestamps are monotonically non-decreasing 
+
+Statistics output : The statistics match the trace
+ 
+Output bad format : No bad output format
+Output wrong precision for statistics (should be 6-8 significant digits) : Correct precision for statistics 
+
+Large service time test : simulation works taking service time of 10 seconds since this is deterministic approach
+Large inter-arrival time test : simulation works taking inter arrival time of 10 seconds since this is deterministic approach
+Tiny inter-arrival time test : simulation works fine
+Tiny service time test : simulation works fine
+
+Large total number of customers test : simulation ends on pressing  <Cntrl+C> after 15 seconds
+    
+Large total number of customers with high arrival rate test : simulation ends waiting for 2 seconds more on pressing  <Cntrl+C> after 15 seconds
+
+Large inter-packet-arrival time <Cntrl+C> test : simulation finishes immediately on pressing <Cntrl+C> immediately after packet 1 has arrived
+    
+Large inter-token-arrival time <Cntrl+C> test : simulation finishes immediately on  pressing <Cntrl+C> immediately after token 1 has arrived
+    
+Dropped tokens test : code passes this test 
+  
+
+ Packet arrival thread terminates when required.
+ No xtra packets are generated after <Cntrl+C> is pressed.
+
+ token thread terminates when required. 
+ No extra tokens are generated after all the packets have been created and Q1 became empty or after <Cntrl+C> is pressed
+
+Not using condition variables or do some kind of busy-wait : Used condtion varibales , No busy waits , Used guard commands to handle busy waits 
+
+Synchronization check : Used only mutexes. No semaphores are used.
+  
+Deadlocks :  No deadlocks in the code.
+
+Bad commandline or command : All the cases in the grading guidelines are handled by the code. Appropriat error mesages are print 
+              
++------+
+| BUGS |
++------+
+
+no bugs in the code.
+
++------------------+
+| OTHER (Optional) |
++------------------+
+
